@@ -12,7 +12,8 @@
   },
   "scripts": {
     "lint": "eslint index.js --max-warnings 0",
-    "lint:fix": "yarn run lint --fix"
+    "lint:fix": "yarn run lint --fix",
+    "test": "yarn run lint"
   },
   "eslintConfig": {
     "env": {
