@@ -1,0 +1,40 @@
+{
+  "name": "nth-log",
+  "version": "1.0.0",
+  "description": "Tiny wrapper around Bunyan that fits my idiosyncracies",
+  "main": "index.js",
+  "repository": "git@github.com:NickHeiner/nth-log.git",
+  "author": "Nick Heiner <nth23@cornell.edu>",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-nth": "^2.0.1"
+  },
+  "scripts": {
+    "lint": "eslint index.js --max-warnings 0",
+    "lint:fix": "yarn run lint --fix"
+  },
+  "eslintConfig": {
+    "env": {
+      "es6": true,
+      "node": true
+    },
+    "rules": {
+      "no-use-before-define": [
+        "error",
+        {
+          "functions": false
+        }
+      ]
+    },
+    "extends": [
+      "nth"
+    ]
+  },
+  "dependencies": {
+    "bunyan": "^1.8.12",
+    "bunyan-format": "^0.2.1",
+    "lodash": "^4.17.15",
+    "pretty-ms": "^5.1.0"
+  }
+}
