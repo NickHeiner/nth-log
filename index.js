@@ -10,12 +10,12 @@ const logger = module.exports = bunyan.createLogger({
 });
 
 async function logStep(logOpts, fn) {
-  const logOptsWithoutStep = _.omit(logOpts, 'step'),
-    step = logOpts.step;
-  logger.info(logOptsWithoutStep, `Starting ${step}`);
+  const logOptsWithoutMetadata = _.omit(logOpts, 'step', 'level'),
+    {step, level = 'info'} = logOpts;
+  logger[level](logOptsWithoutMetadata, `Starting ${step}`);
 
   function logProgress(logOpts) {
-    logger.info({...logOpts, ...getDurationStats()}, `In progress: ${step}`);
+    logger[level]({...logOpts, ...getDurationStats()}, `In progress: ${step}`);
   }
 
   const startTime = new Date();
@@ -27,10 +27,13 @@ async function logStep(logOpts, fn) {
     return {durationMs, prettyDuration: prettyMs(durationMs)};
   }
     
-  const returnVal = await fn(logProgress);
+  let logOptsAdditions;
+  const returnVal = await fn(logProgress, additionalLogData => {
+    logOptsAdditions = additionalLogData; 
+  });
 
-  logger.info(
-    {...logOptsWithoutStep, ...getDurationStats(), ...logOpts}, 
+  logger[level](
+    {...logOptsWithoutMetadata, ...logOptsAdditions, ...getDurationStats()}, 
     `Completed ${step}`
   );
 
