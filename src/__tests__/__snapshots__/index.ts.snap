@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`logger 1`] = `
+"{\\"name\\":\\"test-log\\",\\"hostname\\":\\"Nick-MBP-2020\\",\\"pid\\":40542,\\"level\\":30,\\"dataEntry\\":\\"data value info\\",\\"msg\\":\\"String label\\",\\"time\\":\\"2020-09-20T01:32:29.884Z\\",\\"v\\":0}
+{\\"name\\":\\"test-log\\",\\"hostname\\":\\"Nick-MBP-2020\\",\\"pid\\":40542,\\"level\\":40,\\"dataEntry\\":\\"data value warn\\",\\"msg\\":\\"String label\\",\\"time\\":\\"2020-09-20T01:32:29.884Z\\",\\"v\\":0}
+{\\"name\\":\\"test-log\\",\\"hostname\\":\\"Nick-MBP-2020\\",\\"pid\\":40542,\\"level\\":50,\\"dataEntry\\":\\"data value error\\",\\"msg\\":\\"String label\\",\\"time\\":\\"2020-09-20T01:32:29.884Z\\",\\"v\\":0}
+{\\"name\\":\\"test-log\\",\\"hostname\\":\\"Nick-MBP-2020\\",\\"pid\\":40542,\\"level\\":60,\\"dataEntry\\":\\"data value fatal\\",\\"msg\\":\\"String label\\",\\"time\\":\\"2020-09-20T01:32:29.884Z\\",\\"v\\":0}
+{\\"name\\":\\"test-log\\",\\"hostname\\":\\"Nick-MBP-2020\\",\\"pid\\":40542,\\"level\\":30,\\"msg\\":\\"Starting phase name\\",\\"time\\":\\"2020-09-20T01:32:29.884Z\\",\\"v\\":0}
+{\\"name\\":\\"test-log\\",\\"hostname\\":\\"Nick-MBP-2020\\",\\"pid\\":40542,\\"level\\":30,\\"substep\\":1,\\"durationMs\\":11,\\"prettyDuration\\":\\"11ms\\",\\"msg\\":\\"In progress: phase name\\",\\"time\\":\\"2020-09-20T01:32:29.896Z\\",\\"v\\":0}
+{\\"name\\":\\"test-log\\",\\"hostname\\":\\"Nick-MBP-2020\\",\\"pid\\":40542,\\"level\\":30,\\"substep\\":2,\\"durationMs\\":23,\\"prettyDuration\\":\\"23ms\\",\\"msg\\":\\"In progress: phase name\\",\\"time\\":\\"2020-09-20T01:32:29.907Z\\",\\"v\\":0}
+{\\"name\\":\\"test-log\\",\\"hostname\\":\\"Nick-MBP-2020\\",\\"pid\\":40542,\\"level\\":30,\\"additional\\":\\"metadata\\",\\"durationMs\\":23,\\"prettyDuration\\":\\"23ms\\",\\"msg\\":\\"Completed phase name\\",\\"time\\":\\"2020-09-20T01:32:29.907Z\\",\\"v\\":0}
+"
+`;

@@ -9,9 +9,9 @@ export type LogMetadata = {
   level?: bunyan.LogLevelString
 } & Record<string, unknown>;
 
-export type LogPhaseMetadata = {step: string} & LogMetadata;
+export type LogPhaseMetadata = {phase: string} & LogMetadata;
 export type PhaseFunction<T> = (
-  logProgress: (metadata: Record<string, unknown>) => void, 
+  logProgress: (metadata: Record<string, unknown>, label?: string) => void, 
   setAdditionalLogData: (extraDataToSet: Record<string, unknown>) => void) => Promise<T>; 
 
 export type NTHLogger = {
@@ -29,9 +29,9 @@ export default function createLogger(opts: Parameters<typeof bunyan.createLogger
   logger.info();
 
   async function logPhase<T>(logOpts: LogPhaseMetadata, fn: PhaseFunction<T>) {
-    const logOptsWithoutMetadata = _.omit(logOpts, 'step', 'level'),
-      {step, level = 'info'} = logOpts;
-    logger[level](logOptsWithoutMetadata, `Starting ${step}`);
+    const logOptsWithoutMetadata = _.omit(logOpts, 'phase', 'level'),
+      {phase, level = 'info'} = logOpts;
+    logger[level](logOptsWithoutMetadata, `Starting ${phase}`);
 
     const startTime = new Date();
 
@@ -43,7 +43,7 @@ export default function createLogger(opts: Parameters<typeof bunyan.createLogger
     }
   
     function logProgress(logOpts: Record<string, unknown>) {
-      logger[level]({...logOpts, ...getDurationStats()}, `In progress: ${step}`);
+      logger[level]({...logOpts, ...getDurationStats()}, `In progress: ${phase}`);
     }
   
     let logOptsAdditions: Record<string, unknown> | undefined;
@@ -53,7 +53,7 @@ export default function createLogger(opts: Parameters<typeof bunyan.createLogger
   
     logger[level](
       {...logOptsWithoutMetadata, ...logOptsAdditions, ...getDurationStats()}, 
-      `Completed ${step}`
+      `Completed ${phase}`
     );
   
     return returnVal;
