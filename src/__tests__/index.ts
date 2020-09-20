@@ -1,13 +1,16 @@
 import createLog, {constantizeLogEntryForTest} from '..';
 import {RingBuffer} from 'bunyan';
 
+// I may come to regret having this test directly in TS, as opposed to building the JS and then running the tests on 
+// that. But I think this will give a smoother dev experience.
+
 const wait = (timeMs: number) => new Promise(resolve => setTimeout(resolve, timeMs));
 
 // I'm ok with magic numbers in a test.
 /* eslint-disable no-magic-numbers */
 
 it('logger', async () => {
-  const ringBuffer = new RingBuffer({ limit: 100 });
+  const ringBuffer = new RingBuffer({limit: 100});
   const logger = createLog({
     name: 'test-log', 
     streams: [{

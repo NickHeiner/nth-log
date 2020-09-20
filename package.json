@@ -1,8 +1,8 @@
 {
   "name": "nth-log",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "Tiny wrapper around Bunyan that fits my idiosyncracies",
-  "main": "index.js",
+  "main": "build/index.js",
   "repository": "git@github.com:NickHeiner/nth-log.git",
   "author": "Nick Heiner <nth23@cornell.edu>",
   "license": "MIT",
@@ -27,7 +27,7 @@
     "build": "rm -rf build && tsc --project .",
     "lint": "eslint src/**/*.ts --max-warnings 0",
     "lint:fix": "yarn lint --fix",
-    "unit": "yarn build && yarn jest src",
+    "unit": "yarn jest src",
     "test": "yarn lint && yarn build && yarn unit"
   },
   "dependencies": {
