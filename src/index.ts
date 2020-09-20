@@ -2,18 +2,17 @@ import bunyan from 'bunyan';
 import _ from 'lodash';
 import prettyMs from 'pretty-ms';
 import bunyanFormat from 'bunyan-format';
-import Logger from 'bunyan';
 
 const format = bunyanFormat({outputMode: 'short'});
 
 export type LogMetadata = {
-  level?: Logger.LogLevelString
-} & Object;
+  level?: bunyan.LogLevelString
+} & Record<string, unknown>;
 
 export type LogPhaseMetadata = {step: string} & LogMetadata;
 export type PhaseFunction<T> = (
-  logProgress: (metadata: Object) => void, 
-  setAdditionalLogData: (extraDataToSet: Object) => void) => Promise<T>; 
+  logProgress: (metadata: Record<string, unknown>) => void, 
+  setAdditionalLogData: (extraDataToSet: Record<string, unknown>) => void) => Promise<T>; 
 
 export type NTHLogger = {
   logPhase<T>(logOpts: LogPhaseMetadata, fn: PhaseFunction<T>): Promise<T>;
@@ -23,7 +22,7 @@ export default function createLogger(opts: Parameters<typeof bunyan.createLogger
   const logger = bunyan.createLogger({
     stream: format,
     // Assume the user passed a valid loglevel.
-    level: process.env.loglevel as Logger.LogLevelString,
+    level: process.env.loglevel as bunyan.LogLevelString,
     ...opts
   }) as NTHLogger;
 
@@ -33,21 +32,21 @@ export default function createLogger(opts: Parameters<typeof bunyan.createLogger
     const logOptsWithoutMetadata = _.omit(logOpts, 'step', 'level'),
       {step, level = 'info'} = logOpts;
     logger[level](logOptsWithoutMetadata, `Starting ${step}`);
-  
-    function logProgress(logOpts: Object) {
-      logger[level]({...logOpts, ...getDurationStats()}, `In progress: ${step}`);
-    }
-  
+
     const startTime = new Date();
-  
+
     function getDurationStats() {
       const endTime = new Date(),
         durationMs = endTime.valueOf() - startTime.valueOf();
   
       return {durationMs, prettyDuration: prettyMs(durationMs)};
     }
-      
-    let logOptsAdditions: Object | undefined;
+  
+    function logProgress(logOpts: Record<string, unknown>) {
+      logger[level]({...logOpts, ...getDurationStats()}, `In progress: ${step}`);
+    }
+  
+    let logOptsAdditions: Record<string, unknown> | undefined;
     const returnVal = await fn(logProgress, additionalLogData => {
       logOptsAdditions = additionalLogData; 
     });
