@@ -1,4 +1,4 @@
-import createLog from '..';
+import createLog, {constantizeLogEntryForTest} from '..';
 import {RingBuffer} from 'bunyan';
 
 const wait = (timeMs: number) => new Promise(resolve => setTimeout(resolve, timeMs));
@@ -32,5 +32,5 @@ it('logger', async () => {
     setAdditionalLogMetadata({additional: 'metadata'});
   });
 
-  expect(ringBuffer.records).toMatchSnapshot();
+  expect(ringBuffer.records.map(record => constantizeLogEntryForTest(record))).toMatchSnapshot();
 });

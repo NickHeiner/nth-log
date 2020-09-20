@@ -61,3 +61,25 @@ export default function createLogger(opts: Parameters<typeof bunyan.createLogger
 
   return Object.assign(logger, {logPhase});
 }
+
+type LogEntry = {
+  hostname: string;
+  pid: number;
+  time: Date;
+  durationMs: number;
+  prettyDuration: string;
+} & Record<string, unknown>;
+
+export function constantizeLogEntryForTest(logEntry: LogEntry): LogEntry {
+  return {
+    ..._.omit(logEntry, 'pid', 'hostname', 'time', 'durationMs', 'prettyDuration'),
+    // It's over 9000.
+    pid: 9001,
+    
+    durationMs: 117,
+    prettyDuration: '<duration placeholder>',
+
+    hostname: '<hostname placeholder>',
+    time: new Date('2012'),
+  }
+}
