@@ -1,13 +1,111 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`logger 1`] = `
-"{\\"name\\":\\"test-log\\",\\"hostname\\":\\"Nick-MBP-2020\\",\\"pid\\":40542,\\"level\\":30,\\"dataEntry\\":\\"data value info\\",\\"msg\\":\\"String label\\",\\"time\\":\\"2020-09-20T01:32:29.884Z\\",\\"v\\":0}
-{\\"name\\":\\"test-log\\",\\"hostname\\":\\"Nick-MBP-2020\\",\\"pid\\":40542,\\"level\\":40,\\"dataEntry\\":\\"data value warn\\",\\"msg\\":\\"String label\\",\\"time\\":\\"2020-09-20T01:32:29.884Z\\",\\"v\\":0}
-{\\"name\\":\\"test-log\\",\\"hostname\\":\\"Nick-MBP-2020\\",\\"pid\\":40542,\\"level\\":50,\\"dataEntry\\":\\"data value error\\",\\"msg\\":\\"String label\\",\\"time\\":\\"2020-09-20T01:32:29.884Z\\",\\"v\\":0}
-{\\"name\\":\\"test-log\\",\\"hostname\\":\\"Nick-MBP-2020\\",\\"pid\\":40542,\\"level\\":60,\\"dataEntry\\":\\"data value fatal\\",\\"msg\\":\\"String label\\",\\"time\\":\\"2020-09-20T01:32:29.884Z\\",\\"v\\":0}
-{\\"name\\":\\"test-log\\",\\"hostname\\":\\"Nick-MBP-2020\\",\\"pid\\":40542,\\"level\\":30,\\"msg\\":\\"Starting phase name\\",\\"time\\":\\"2020-09-20T01:32:29.884Z\\",\\"v\\":0}
-{\\"name\\":\\"test-log\\",\\"hostname\\":\\"Nick-MBP-2020\\",\\"pid\\":40542,\\"level\\":30,\\"substep\\":1,\\"durationMs\\":11,\\"prettyDuration\\":\\"11ms\\",\\"msg\\":\\"In progress: phase name\\",\\"time\\":\\"2020-09-20T01:32:29.896Z\\",\\"v\\":0}
-{\\"name\\":\\"test-log\\",\\"hostname\\":\\"Nick-MBP-2020\\",\\"pid\\":40542,\\"level\\":30,\\"substep\\":2,\\"durationMs\\":23,\\"prettyDuration\\":\\"23ms\\",\\"msg\\":\\"In progress: phase name\\",\\"time\\":\\"2020-09-20T01:32:29.907Z\\",\\"v\\":0}
-{\\"name\\":\\"test-log\\",\\"hostname\\":\\"Nick-MBP-2020\\",\\"pid\\":40542,\\"level\\":30,\\"additional\\":\\"metadata\\",\\"durationMs\\":23,\\"prettyDuration\\":\\"23ms\\",\\"msg\\":\\"Completed phase name\\",\\"time\\":\\"2020-09-20T01:32:29.907Z\\",\\"v\\":0}
-"
+Array [
+  Object {
+    "dataEntry": "data value trace",
+    "hostname": "Nick-MBP-2020",
+    "level": 10,
+    "msg": "String label",
+    "name": "test-log",
+    "pid": 44408,
+    "time": 2020-09-20T01:38:24.359Z,
+    "v": 0,
+  },
+  Object {
+    "dataEntry": "data value debug",
+    "hostname": "Nick-MBP-2020",
+    "level": 20,
+    "msg": "String label",
+    "name": "test-log",
+    "pid": 44408,
+    "time": 2020-09-20T01:38:24.359Z,
+    "v": 0,
+  },
+  Object {
+    "dataEntry": "data value info",
+    "hostname": "Nick-MBP-2020",
+    "level": 30,
+    "msg": "String label",
+    "name": "test-log",
+    "pid": 44408,
+    "time": 2020-09-20T01:38:24.359Z,
+    "v": 0,
+  },
+  Object {
+    "dataEntry": "data value warn",
+    "hostname": "Nick-MBP-2020",
+    "level": 40,
+    "msg": "String label",
+    "name": "test-log",
+    "pid": 44408,
+    "time": 2020-09-20T01:38:24.359Z,
+    "v": 0,
+  },
+  Object {
+    "dataEntry": "data value error",
+    "hostname": "Nick-MBP-2020",
+    "level": 50,
+    "msg": "String label",
+    "name": "test-log",
+    "pid": 44408,
+    "time": 2020-09-20T01:38:24.359Z,
+    "v": 0,
+  },
+  Object {
+    "dataEntry": "data value fatal",
+    "hostname": "Nick-MBP-2020",
+    "level": 60,
+    "msg": "String label",
+    "name": "test-log",
+    "pid": 44408,
+    "time": 2020-09-20T01:38:24.359Z,
+    "v": 0,
+  },
+  Object {
+    "hostname": "Nick-MBP-2020",
+    "level": 30,
+    "msg": "Starting phase name",
+    "name": "test-log",
+    "pid": 44408,
+    "time": 2020-09-20T01:38:24.360Z,
+    "v": 0,
+  },
+  Object {
+    "durationMs": 12,
+    "hostname": "Nick-MBP-2020",
+    "level": 30,
+    "msg": "In progress: phase name",
+    "name": "test-log",
+    "pid": 44408,
+    "prettyDuration": "12ms",
+    "substep": 1,
+    "time": 2020-09-20T01:38:24.373Z,
+    "v": 0,
+  },
+  Object {
+    "durationMs": 23,
+    "hostname": "Nick-MBP-2020",
+    "level": 30,
+    "msg": "In progress: phase name",
+    "name": "test-log",
+    "pid": 44408,
+    "prettyDuration": "23ms",
+    "substep": 2,
+    "time": 2020-09-20T01:38:24.383Z,
+    "v": 0,
+  },
+  Object {
+    "additional": "metadata",
+    "durationMs": 24,
+    "hostname": "Nick-MBP-2020",
+    "level": 30,
+    "msg": "Completed phase name",
+    "name": "test-log",
+    "pid": 44408,
+    "prettyDuration": "24ms",
+    "time": 2020-09-20T01:38:24.384Z,
+    "v": 0,
+  },
+]
 `;

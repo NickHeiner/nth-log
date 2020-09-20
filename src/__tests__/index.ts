@@ -1,6 +1,5 @@
 import createLog from '..';
-import {Writable} from 'stream';
-import getStream from 'get-stream';
+import {RingBuffer} from 'bunyan';
 
 const wait = (timeMs: number) => new Promise(resolve => setTimeout(resolve, timeMs));
 
@@ -8,15 +7,16 @@ const wait = (timeMs: number) => new Promise(resolve => setTimeout(resolve, time
 /* eslint-disable no-magic-numbers */
 
 it('logger', async () => {
-  let output = '';
-  const stream = new Writable({
-    write: (chunk, _encoding, next) => {
-      output += chunk.toString();
-      next();
-    }
+  const ringBuffer = new RingBuffer({ limit: 100 });
+  const logger = createLog({
+    name: 'test-log', 
+    streams: [{
+      level: 'trace',
+      type: 'raw',
+      stream: ringBuffer
+    }],
+    stream: undefined
   });
-
-  const logger = createLog({name: 'test-log', stream});
   logger.trace({dataEntry: 'data value trace'}, 'String label');
   logger.debug({dataEntry: 'data value debug'}, 'String label');
   logger.info({dataEntry: 'data value info'}, 'String label');
@@ -32,5 +32,5 @@ it('logger', async () => {
     setAdditionalLogMetadata({additional: 'metadata'});
   });
 
-  expect(output).toMatchSnapshot();
+  expect(ringBuffer.records).toMatchSnapshot();
 });
