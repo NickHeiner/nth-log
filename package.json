@@ -7,8 +7,12 @@
   "author": "Nick Heiner <nth23@cornell.edu>",
   "license": "MIT",
   "devDependencies": {
+    "@types/bunyan": "^1.8.6",
+    "@types/bunyan-format": "^0.2.3",
+    "@types/lodash": "^4.14.161",
     "eslint": "^6.8.0",
-    "eslint-config-nth": "^2.0.1"
+    "eslint-config-nth": "^2.0.1",
+    "typescript": "^4.0.3"
   },
   "scripts": {
     "lint": "eslint index.js --max-warnings 0",

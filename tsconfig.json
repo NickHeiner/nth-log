@@ -1,0 +1,25 @@
+{
+  "include": ["src"],
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",                     
+    "allowJs": true,                       
+    "checkJs": true,                       
+    "declaration": true,                   
+    "declarationMap": true,                
+    "sourceMap": true,                     
+    "outDir": "./build",                        
+    
+    "strict": true,                           
+    
+    "noUnusedLocals": true,                
+    "noUnusedParameters": true,            
+    "noImplicitReturns": true,             
+    "noFallthroughCasesInSwitch": true,    
+    
+    "esModuleInterop": true,                  
+
+    "skipLibCheck": true,                     
+    "forceConsistentCasingInFileNames": true  
+  }
+}
