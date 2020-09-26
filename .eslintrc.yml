@@ -4,7 +4,6 @@ ignorePatterns:
 parser: '@typescript-eslint/parser'
 plugins: 
   - '@typescript-eslint'
-  - jest
 extends: 
   - nth
   - plugin:@typescript-eslint/recommended
