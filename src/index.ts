@@ -59,6 +59,8 @@ export default function createLogger(opts: Parameters<typeof bunyan.createLogger
     return returnVal;
   }
 
+  // TODO: if you call logger.child(), then logPhase is no longer present.
+
   return Object.assign(logger, {logPhase});
 }
 
