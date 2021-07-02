@@ -35,5 +35,9 @@ it('logger', async () => {
     setAdditionalLogMetadata({additional: 'metadata'});
   });
 
+  const child = logger.child({childOpt: 'child value'});
+
+  await child.logPhase({phase: 'child phase name'}, () => wait(10));
+
   expect(ringBuffer.records.map(record => constantizeLogEntryForTest(record))).toMatchSnapshot();
 });
