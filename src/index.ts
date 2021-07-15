@@ -18,16 +18,7 @@ export type NTHLogger = {
   logPhase<T>(logOpts: LogPhaseMetadata, fn: PhaseFunction<T>): Promise<T>;
 } & ReturnType<typeof bunyan.createLogger>;
 
-export default function createLogger(opts: Parameters<typeof bunyan.createLogger>[0]): NTHLogger {
-  const logger = bunyan.createLogger({
-    stream: format,
-    // Assume the user passed a valid loglevel.
-    level: process.env.loglevel as bunyan.LogLevelString,
-    ...opts
-  }) as NTHLogger;
-
-  logger.info();
-
+function decorateBunyanInstance(logger: bunyan) {
   async function logPhase<T>(logOpts: LogPhaseMetadata, fn: PhaseFunction<T>) {
     const logOptsWithoutMetadata = _.omit(logOpts, 'phase', 'level'),
       {phase, level = 'info'} = logOpts;
@@ -59,9 +50,29 @@ export default function createLogger(opts: Parameters<typeof bunyan.createLogger
     return returnVal;
   }
 
-  // TODO: if you call logger.child(), then logPhase is no longer present.
+  const origChild = logger.child;
+  logger.child = function(...args) {
+    const childLogger = origChild.apply(this, args);
+    decorateBunyanInstance(childLogger);
+    return childLogger;
+  };
 
-  return Object.assign(logger, {logPhase});
+  Object.assign(logger, {logPhase});
+}
+
+export default function createLogger(opts: Parameters<typeof bunyan.createLogger>[0]): NTHLogger {
+  const logger = bunyan.createLogger({
+    stream: format,
+    // Assume the user passed a valid loglevel.
+    level: process.env.loglevel as bunyan.LogLevelString,
+    ...opts
+  }) as NTHLogger;
+
+  logger.info();
+
+
+  decorateBunyanInstance(logger);
+  return logger;
 }
 
 type LogEntry = {
