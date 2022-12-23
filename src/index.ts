@@ -32,6 +32,11 @@ function decorateBunyanInstance(logger: bunyan) {
   
       return {durationMs, prettyDuration: prettyMs(durationMs)};
     }
+
+    // It might be nice if the setAdditionalLogData function passed to the phase function were resilient to errors.
+    // Right now, if it throws an error, the final logger call never occurs.
+    // It could be nice to attach the logging metadata, log the last line, and then throw the error.
+    // Or give a way for the logProgress function to do a "log then throw" pattern.
   
     function logProgress(logOpts: Record<string, unknown>) {
       logger[level]({...logOpts, ...getDurationStats()}, `In progress: ${phase}`);
