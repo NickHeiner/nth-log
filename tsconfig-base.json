@@ -2,14 +2,11 @@
   "include": ["src"],
   "exclude": ["src/__tests__"],
   "compilerOptions": {
-    "target": "ES2018",
-    "module": "commonjs",                     
     "allowJs": true,                       
     "checkJs": true,                       
     "declaration": true,                   
     "declarationMap": true,                
     "sourceMap": true,                     
-    "outDir": "./build",                        
     
     "strict": true,                           
     

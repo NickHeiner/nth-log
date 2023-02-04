@@ -1,6 +1,6 @@
 {
   "name": "nth-log",
-  "version": "2.0.2",
+  "version": "3.0.0",
   "description": "Tiny wrapper around Bunyan that fits my idiosyncracies",
   "main": "build/index.js",
   "repository": "git@github.com:NickHeiner/nth-log.git",
@@ -20,10 +20,18 @@
     "eslint-config-nth": "^2.0.1",
     "eslint-plugin-jest": "^24.0.1",
     "jest": "^26.4.2",
-    "typescript": "^4.0.3"
+    "typescript": "^4.9.5"
   },
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./build-esm/index.js",
+      "require": "./build-cjs/index.js"
+    }
+  },
+  "main": "build-cjs/index.js",
   "scripts": {
-    "build": "rm -rf build && tsc --project .",
+    "build": "rm -rf build* && tsc --project tsconfig-cjs.json && tsc --project tsconfig-esm.json",
     "lint": "eslint src/**/*.ts --max-warnings 0",
     "lint:fix": "yarn lint --fix",
     "unit": "yarn jest src",
