@@ -26,12 +26,12 @@
   "exports": {
     ".": {
       "import": "./build-esm/index.js",
-      "require": "./build-cjs/index.js"
+      "require": "./build-cjs/index.cjs"
     }
   },
   "main": "build-cjs/index.js",
   "scripts": {
-    "build": "rm -rf build* && tsc --project tsconfig-cjs.json && tsc --project tsconfig-esm.json",
+    "build": "rm -rf build* && tsc --project tsconfig-cjs.json && tsc --project tsconfig-esm.json && mv build-cjs/index.js build-cjs/index.cjs && mv build-cjs/index.js.map build-cjs/index.cjs.map", 
     "lint": "eslint src/**/*.ts --max-warnings 0",
     "lint:fix": "yarn lint --fix",
     "unit": "yarn jest src",
