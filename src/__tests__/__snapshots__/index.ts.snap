@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`logger 1`] = `
-Array [
-  Object {
+[
+  {
     "dataEntry": "data value trace",
     "durationMs": 117,
     "hostname": "<hostname placeholder>",
@@ -14,7 +14,7 @@ Array [
     "time": 2012-01-01T00:00:00.000Z,
     "v": 0,
   },
-  Object {
+  {
     "dataEntry": "data value debug",
     "durationMs": 117,
     "hostname": "<hostname placeholder>",
@@ -26,7 +26,7 @@ Array [
     "time": 2012-01-01T00:00:00.000Z,
     "v": 0,
   },
-  Object {
+  {
     "dataEntry": "data value info",
     "durationMs": 117,
     "hostname": "<hostname placeholder>",
@@ -38,7 +38,7 @@ Array [
     "time": 2012-01-01T00:00:00.000Z,
     "v": 0,
   },
-  Object {
+  {
     "dataEntry": "data value warn",
     "durationMs": 117,
     "hostname": "<hostname placeholder>",
@@ -50,7 +50,7 @@ Array [
     "time": 2012-01-01T00:00:00.000Z,
     "v": 0,
   },
-  Object {
+  {
     "dataEntry": "data value error",
     "durationMs": 117,
     "hostname": "<hostname placeholder>",
@@ -62,7 +62,7 @@ Array [
     "time": 2012-01-01T00:00:00.000Z,
     "v": 0,
   },
-  Object {
+  {
     "dataEntry": "data value fatal",
     "durationMs": 117,
     "hostname": "<hostname placeholder>",
@@ -74,7 +74,7 @@ Array [
     "time": 2012-01-01T00:00:00.000Z,
     "v": 0,
   },
-  Object {
+  {
     "durationMs": 117,
     "hostname": "<hostname placeholder>",
     "level": 30,
@@ -85,7 +85,7 @@ Array [
     "time": 2012-01-01T00:00:00.000Z,
     "v": 0,
   },
-  Object {
+  {
     "durationMs": 117,
     "hostname": "<hostname placeholder>",
     "level": 30,
@@ -97,7 +97,7 @@ Array [
     "time": 2012-01-01T00:00:00.000Z,
     "v": 0,
   },
-  Object {
+  {
     "durationMs": 117,
     "hostname": "<hostname placeholder>",
     "level": 30,
@@ -109,7 +109,7 @@ Array [
     "time": 2012-01-01T00:00:00.000Z,
     "v": 0,
   },
-  Object {
+  {
     "additional": "metadata",
     "durationMs": 117,
     "hostname": "<hostname placeholder>",
@@ -121,7 +121,7 @@ Array [
     "time": 2012-01-01T00:00:00.000Z,
     "v": 0,
   },
-  Object {
+  {
     "childOpt": "child value",
     "durationMs": 117,
     "hostname": "<hostname placeholder>",
@@ -133,7 +133,7 @@ Array [
     "time": 2012-01-01T00:00:00.000Z,
     "v": 0,
   },
-  Object {
+  {
     "childOpt": "child value",
     "durationMs": 117,
     "hostname": "<hostname placeholder>",
